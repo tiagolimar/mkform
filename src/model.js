@@ -1,18 +1,17 @@
 const formulario = {
     nome:{
-        titulo: "",
         valor:"DIRETRIZES DE INSTALAÇÕES PREDIAIS",
-        tipo_de_valor: "string"    
+        tipo_de_valor: "text"    
     },
     nome_do_obra: {
         titulo: "NOME DA OBRA",
         valor:"Empreendimento Orion",
-        tipo_de_valor: "string"
+        tipo_de_valor: "text"
     },
     endereco_da_obra: {
         titulo: "ENDEREÇO DA OBRA",
         valor:"Rua Jataí Nogueira, 1242, Meireles, Fortaleza-CE",
-        tipo_de_valor: "string"
+        tipo_de_valor: "text"
     },
     revisao: {
         titulo: "Nº DE REVISÃO",
@@ -26,37 +25,72 @@ const formulario = {
     },
     disciplinas: [{
         nome: {
-            titulo: "",
             valor: "HIDRÁULICA",
-            tipo_de_valor: "string"
+            tipo_de_valor: "text"
         },
         ativo: {
-            titulo: "",
+            titulo: "incluir",
             valor: true,
-            tipo_de_valor: "boolean"
+            tipo_de_valor: "radio",
         },
-        legenda: ["opção 01", "opção 02"],
+        legenda: [{
+            titulo: "opção 01",
+            valor: true,
+            tipo_de_valor: "check"
+        },
+        {
+            titulo: "opção 01",
+            valor: true,
+            tipo_de_valor: "check"
+        }],
         topicos: [{
-            nome: "o nome do tópico aqui",
-            ativo: "true ou false",
-            opções: [{
-                    nome: "o nome da opção",
-                    imagem_de_referencia: "imagem",
-                    quantidade_sub_opções: 0,
+            nome: {
+                valor: "Tópico 1",
+                tipo_de_valor: "text"
+            },
+            ativo: {
+                titulo: "incluir",
+                valor: true,
+                tipo_de_valor: "radio",
+            },
+            opcoes: [{
+                    nome: {
+                        valor: "Opção 1",
+                        tipo_de_valor: "text"
+                    },
+                    imagem_de_referencia: {
+                        titulo: "Imagem",
+                        valor: "Imagem",
+                        tipo_de_valor: "text",
+                    },
+                    quantidade_sub_opções: {
+                        titulo: "Nº sub-opções",
+                        valor: 1,
+                        tipo_de_valor: "number",
+                    },
                     sub_opcoes: [
-                        {nome: "nome da sub opção"}
+                        {nome: {
+                            valor: "Sub-opção 1",
+                            tipo_de_valor: "text"
+                        }}
                     ]
                 }
             ]}
         ],
-        observacoes: [
-            "sua observação aqui"
-        ]
+        observacoes: [{
+            nome: {
+                valor: "Observação 01",
+                tipo_de_valor: "text",
+            },
+        }]
     }
     ],
-    observacoes:[
-        "Sua observação aqui"
-    ]
+    observacoes:[{
+        nome: {
+            valor: "Observação 01",
+            tipo_de_valor: "text",
+        },
+    }]
 }
 
 export default formulario;

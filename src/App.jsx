@@ -1,14 +1,15 @@
 import { Container, Form } from "react-bootstrap";
 import formulario from "./model";
 
-function renderCampo(campo, chave) {
+function renderCampo(campo, chave, id) {
     const { titulo, valor, tipo_de_valor } = campo;
 
     switch (tipo_de_valor) {
-        case "boolean":
+        case "check":
+            console.log("check");
             return (
                 <Form.Check
-                    key={chave}
+                    key={id}
                     type="checkbox"
                     id={chave}
                     label={titulo}
@@ -16,9 +17,21 @@ function renderCampo(campo, chave) {
                 />
             );
 
+        case "radio":
+            console.log("radio");
+            return (
+                <Form.Check
+                    key={id}
+                    type="radio"
+                    id={id}
+                    label={titulo}
+                    defaultChecked={valor}
+                />
+            );
+
         default:
             return (
-                <Form.Group key={chave} className="mt-2">
+                <Form.Group key={id} className="mt-2">
                     <Form.Label sm={3} className="fw-bold">
                         {titulo}
                     </Form.Label>
@@ -36,18 +49,18 @@ function renderCampo(campo, chave) {
     }
 }
 
-function renderArray(campo, chave) {
-    const { titulo } = campo;
-
+function renderArray(campo, chave, id) {
     return (
-        <Container key={chave} className="border p-3 mt-3">
-            <Form.Label>{titulo}</Form.Label>
-            {campo.map((item, index) => {
-                if (Array.isArray(item)) {
-                    return renderArray(item, index);
-                } else {
-                    return renderCampo(item, index);
-                }
+        <Container key={id} className="border p-3 mt-3">
+            <Form.Label>{"um titulo bacana"}</Form.Label>
+            {campo.map((item) => {
+                Object.entries(item).map(([chave, campo], id) => {
+                    if (Array.isArray(campo)) {
+                        return renderArray(campo, chave, id);
+                    } else {
+                        return renderCampo(campo, chave, id);
+                    }
+                });
             })}
         </Container>
     );
@@ -57,11 +70,11 @@ function App() {
     return (
         <Form>
             <Container className="mt-4">
-                {Object.entries(formulario).map(([chave, campo]) => {
+                {Object.entries(formulario).map(([chave, campo], id) => {
                     if (Array.isArray(campo)) {
-                        return renderArray(campo, chave);
+                        return renderArray(campo, chave, id);
                     } else {
-                        return renderCampo(campo, chave);
+                        return renderCampo(campo, chave, id);
                     }
                 })}
             </Container>
