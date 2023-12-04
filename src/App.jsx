@@ -1,12 +1,11 @@
 import { Container, Form } from "react-bootstrap";
-import formulario from "./model";
+import formulario from "./model/modelo_simples.js";
 
 function renderCampo(campo, chave, id) {
     const { titulo, valor, tipo_de_valor } = campo;
 
     switch (tipo_de_valor) {
         case "check":
-            console.log("check");
             return (
                 <Form.Check
                     key={id}
@@ -18,7 +17,6 @@ function renderCampo(campo, chave, id) {
             );
 
         case "radio":
-            console.log("radio");
             return (
                 <Form.Check
                     key={id}
@@ -66,19 +64,28 @@ function renderArray(campo, chave, id) {
     );
 }
 
+function jsonParaFormulario(obj){
+    const formulario = obj
+    return(
+        Object.entries(formulario).map(([prop_form, valor], id) => {
+            if (Array.isArray(valor)) {
+                const lista = valor
+                return renderArray(lista, prop_form, id);
+            } else {
+                const prop_campo = valor
+                return renderCampo(prop_campo, prop_form, id);
+            }
+        })
+    )
+}
+
 function App() {
     return (
-        <Form>
-            <Container className="mt-4">
-                {Object.entries(formulario).map(([chave, campo], id) => {
-                    if (Array.isArray(campo)) {
-                        return renderArray(campo, chave, id);
-                    } else {
-                        return renderCampo(campo, chave, id);
-                    }
-                })}
-            </Container>
-        </Form>
+        <Container className="mt-4">
+            <Form>
+                {jsonParaFormulario(formulario)}
+            </Form>
+        </Container>
     );
 }
 

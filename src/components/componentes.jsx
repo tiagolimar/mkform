@@ -1,6 +1,6 @@
 import { Form } from "react-bootstrap";
 
-export const componentes = {
+const componentes = {
     tituloDeSecao,
     Campo,
     check,
@@ -48,3 +48,5 @@ function check(campo, chave, id) {
         />
     );
 }
+
+export default componentes;
