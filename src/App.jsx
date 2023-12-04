@@ -1,5 +1,5 @@
 import { Container, Form } from "react-bootstrap";
-import formulario from "./model/modelo_simples.js";
+import formulario from "./model/modelo_disciplina.js";
 import componentes from "./components/componentes.jsx";
 
 function renderCampo(prop_campo, prop_form) {
@@ -9,16 +9,15 @@ function renderCampo(prop_campo, prop_form) {
     return componente(prop_campo, prop_form)
 }
 
-function renderArray(campo, chave, id) {
+function renderArray(lista, prop_form, id) {
     return (
-        <Container key={id} className="border p-3 mt-3">
-            <Form.Label>{"um titulo bacana"}</Form.Label>
-            {campo.map((item) => {
-                Object.entries(item).map(([chave, campo], id) => {
-                    if (Array.isArray(campo)) {
-                        return renderArray(campo, chave, id);
+        <Container key={id} className="border p-3">
+            {lista.map((item) => {
+                Object.entries(item).map(([prop_form, prop_campo], id) => {
+                    if (Array.isArray(prop_campo)) {
+                        return renderArray(prop_campo, prop_form, id);
                     } else {
-                        return renderCampo(campo, chave, id);
+                        return renderCampo(prop_campo, prop_form, id);
                     }
                 });
             })}
@@ -32,6 +31,7 @@ function jsonParaFormulario(obj){
         Object.entries(formulario).map(([prop_form, valor], id) => {
             if (Array.isArray(valor)) {
                 const lista = valor
+                console.log(prop_form, "é uma lista");
                 return renderArray(lista, prop_form, id);
             } else {
                 const prop_campo = valor
@@ -43,7 +43,7 @@ function jsonParaFormulario(obj){
 
 function App() {
     return (
-        <Container className="mt-4">
+        <Container className="border mt-3 p-3">
             <Form>
                 {jsonParaFormulario(formulario)}
             </Form>

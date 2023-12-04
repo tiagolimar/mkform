@@ -23,7 +23,7 @@ function campo(prop_campo, prop_form) {
 function titulo(prop_campo, chave, id) {
     const { valor, tipo_de_valor } = prop_campo;
     return (
-        <Form.Group key={id} className="mt-2">
+        <Form.Group key={id}>
             <Form.Control
                 type={tipo_de_valor}
                 defaultValue={valor}
