@@ -1,15 +1,15 @@
 import { Form } from "react-bootstrap";
 
 const componentes = {
-    tituloDeSecao,
-    Campo,
+    titulo,
+    campo,
     check,
 }
 
-function Campo(campo, chave, id) {
-    const { titulo, valor, tipo_de_valor } = campo;
+function campo(prop_campo, prop_form) {
+    const { titulo, valor, tipo_de_valor } = prop_campo;
     return (
-        <Form.Group key={id} className="mt-2">
+        <Form.Group key={prop_form} className="mt-2">
             <Form.Label sm={3} className="fw-bold">
                 {titulo}
             </Form.Label>
@@ -20,8 +20,8 @@ function Campo(campo, chave, id) {
         </Form.Group>
     )}
 
-function tituloDeSecao(campo, chave, id) {
-    const { valor, tipo_de_valor } = campo;
+function titulo(prop_campo, chave, id) {
+    const { valor, tipo_de_valor } = prop_campo;
     return (
         <Form.Group key={id} className="mt-2">
             <Form.Control
@@ -36,15 +36,16 @@ function tituloDeSecao(campo, chave, id) {
         </Form.Group>
     )}
 
-function check(campo, chave, id) {
-    const { titulo, valor, tipo_de_valor } = campo;
+function check(prop_campo, prop_form, id) {
+    const { titulo, valor, tipo_de_valor } = prop_campo;
     return (
         <Form.Check
-            key={id}
+            key={prop_form}
             type={tipo_de_valor}
-            id={chave}
+            id={id}
             label={titulo}
             defaultChecked={valor}
+            className="mt-2"
         />
     );
 }
