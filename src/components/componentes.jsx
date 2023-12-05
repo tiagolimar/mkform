@@ -4,12 +4,13 @@ const componentes = {
     titulo,
     campo,
     check,
+    opcao,
 }
 
-function campo(prop_campo, prop_form) {
+function campo(prop_campo, prop_form, id) {
     const { titulo, valor, tipo_de_valor } = prop_campo;
     return (
-        <Form.Group key={prop_form} className="mt-2">
+        <Form.Group key={`${prop_form}-${id}`} className="mt-2">
             <Form.Label sm={3} className="fw-bold">
                 {titulo}
             </Form.Label>
@@ -20,10 +21,10 @@ function campo(prop_campo, prop_form) {
         </Form.Group>
     )}
 
-function titulo(prop_campo, chave, id) {
+function titulo(prop_campo, prop_form, id) {
     const { valor, tipo_de_valor } = prop_campo;
     return (
-        <Form.Group key={id}>
+        <Form.Group key={`${prop_form}-${id}`}>
             <Form.Control
                 type={tipo_de_valor}
                 defaultValue={valor}
@@ -36,13 +37,28 @@ function titulo(prop_campo, chave, id) {
         </Form.Group>
     )}
 
+function opcao(prop_campo, prop_form, id) {
+    const { valor, tipo_de_valor } = prop_campo;
+    return (
+        <Form.Group key={`${prop_form}-${id}`}>
+            <Form.Control
+                type={tipo_de_valor}
+                defaultValue={valor}
+                style={{
+                    border: "none",
+                    paddingLeft: 0,
+                }}
+            />
+        </Form.Group>
+    )}
+
 function check(prop_campo, prop_form, id) {
     const { titulo, valor, tipo_de_valor } = prop_campo;
     return (
         <Form.Check
-            key={prop_form}
+            key={`${prop_form}-${id}`}
             type={tipo_de_valor}
-            id={id}
+            id={`${prop_form}-${id}`}
             label={titulo}
             defaultChecked={valor}
             className="mt-2"
