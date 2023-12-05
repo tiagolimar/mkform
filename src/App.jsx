@@ -11,10 +11,10 @@ function renderCampo(prop_campo, prop_form, id) {
 
 function renderArray(lista, prop_form, id) {
     return (
-        <Container key={`${prop_form}-${id}`} className="border p-3 d-flex flex-wrap">
-            {lista.map((secao) => {
-                    return(Object.entries(secao).map(([prop_form, valor], subId) => {
-                        const superId = `${id}-${subId}`
+        <Container key={`${id}`} className="border p-3 d-flex flex-wrap">
+            {lista.map((secao,subId) => {
+                    return(Object.entries(secao).map(([prop_form, valor], nanoId) => {
+                        const superId = `${id}-${subId}-${nanoId}`;
                         if (Array.isArray(valor)) {
                             const lista = valor;
                             return renderArray(lista, prop_form, superId);
