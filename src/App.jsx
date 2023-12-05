@@ -1,5 +1,5 @@
 import { Container, Form } from "react-bootstrap";
-import formulario from "./model/modelo_disciplina.js";
+import formulario from "./model/modelo_completo.js";
 import componentes from "./components/componentes.jsx";
 
 function renderCampo(prop_campo, prop_form, id) {
@@ -11,15 +11,16 @@ function renderCampo(prop_campo, prop_form, id) {
 
 function renderArray(lista, prop_form, id) {
     return (
-        <Container key={`${prop_form}-${id}`} className="border p-3">
+        <Container key={`${prop_form}-${id}`} className="border p-3 d-flex flex-wrap">
             {lista.map((secao) => {
                     return(Object.entries(secao).map(([prop_form, valor], subId) => {
+                        const superId = `${id}-${subId}`
                         if (Array.isArray(valor)) {
                             const lista = valor;
-                            return renderArray(lista, prop_form, subId);
+                            return renderArray(lista, prop_form, superId);
                         } else {
                             const prop_campo = valor;
-                            return renderCampo(prop_campo, prop_form);
+                            return renderCampo(prop_campo, prop_form, superId);
                         }
                     }))
             })}

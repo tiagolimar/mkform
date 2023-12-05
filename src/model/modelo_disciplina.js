@@ -12,23 +12,24 @@ const formulario = {
                 tipo_de_valor: "checkbox",
                 tipo_de_elemento: "check",
             },
-            legenda: [{
-                nome: {
-                    valor: "Legenda",
-                    tipo_de_valor: "text",
-                    tipo_de_elemento: "titulo",
+            legenda: [
+                {
+                    nome: {
+                        valor: "Legenda",
+                        tipo_de_valor: "text",
+                        tipo_de_elemento: "titulo",
+                    },
+                    op1: {
+                        valor: "Opção 01",
+                        tipo_de_valor: "text",
+                        tipo_de_elemento: "opcao",
+                    },
+                    op2: {
+                        valor: "Opção 02",
+                        tipo_de_valor: "text",
+                        tipo_de_elemento: "opcao",
+                    },
                 },
-                op1: {
-                    valor: "Opção 01",
-                    tipo_de_valor: "text",
-                    tipo_de_elemento: "opcao",
-                },
-                op2: {
-                    valor: "Opção 02",
-                    tipo_de_valor: "text",
-                    tipo_de_elemento: "opcao",
-                },
-            },
             ],
             topicos: [
                 {
@@ -40,7 +41,7 @@ const formulario = {
                     ativo: {
                         titulo: "incluir",
                         valor: true,
-                        tipo_de_valor: "radio",
+                        tipo_de_valor: "checkbox",
                         tipo_de_elemento: "check",
                     },
                     opcoes: [
@@ -50,26 +51,15 @@ const formulario = {
                                 tipo_de_valor: "text",
                                 tipo_de_elemento: "opcao",
                             },
-                            sub_opcoes: [
-                                {
-                                    nome: {
-                                        valor: "Sub-opção 1",
-                                        tipo_de_valor: "text",
-                                        tipo_de_elemento: "campo",
-                                    },
-                                },
-                            ],
-                            quantidade_sub_opções: {
-                                titulo: "Nº sub-opções",
-                                valor: 1,
-                                tipo_de_valor: "number",
-                                tipo_de_elemento: "campo",
+                            subop1: {
+                                valor: "Sub-opção 1",
+                                tipo_de_valor: "text",
+                                tipo_de_elemento: "opcao",
                             },
                             imagem_de_referencia: {
-                                titulo: "Imagem",
                                 valor: "Imagem",
                                 tipo_de_valor: "text",
-                                tipo_de_elemento: "campo",
+                                tipo_de_elemento: "opcao",
                             },
                         },
                     ],
@@ -77,10 +67,15 @@ const formulario = {
             ],
             observacoes: [
                 {
-                    nome: {
+                    obs1: {
                         valor: "Observação 01",
                         tipo_de_valor: "text",
-                        tipo_de_elemento: "campo",
+                        tipo_de_elemento: "opcao",
+                    },
+                    obs2: {
+                        valor: "Observação 01",
+                        tipo_de_valor: "text",
+                        tipo_de_elemento: "opcao",
                     },
                 },
             ],

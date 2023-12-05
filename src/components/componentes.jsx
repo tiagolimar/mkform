@@ -23,6 +23,7 @@ function campo(prop_campo, prop_form, id) {
 
 function titulo(prop_campo, prop_form, id) {
     const { valor, tipo_de_valor } = prop_campo;
+    const comprimento = valor.length > 10 ? valor.length*1.25 : 10;
     return (
         <Form.Group key={`${prop_form}-${id}`}>
             <Form.Control
@@ -32,7 +33,7 @@ function titulo(prop_campo, prop_form, id) {
                     border: "none",
                     paddingLeft: 0,
                     fontWeight: "bold",
-                    width: `${valor.length*1.2}ch`,
+                    width: `${comprimento}ch`,
                 }}
             />
         </Form.Group>
@@ -40,6 +41,7 @@ function titulo(prop_campo, prop_form, id) {
 
 function opcao(prop_campo, prop_form, id) {
     const { valor, tipo_de_valor } = prop_campo;
+    const comprimento = valor.length > 15 ? valor.length*0.9 : 15;
     return (
         <Form.Group key={`${prop_form}-${id}`}>
             <Form.Control
@@ -48,7 +50,7 @@ function opcao(prop_campo, prop_form, id) {
                 style={{
                     border: "none",
                     paddingLeft: 0,
-                    width: `${valor.length*1.25}ch`,
+                    width: `${comprimento}ch`,
                 }}
             />
         </Form.Group>
@@ -63,7 +65,7 @@ function check(prop_campo, prop_form, id) {
             id={`${prop_form}-${id}`}
             label={titulo}
             defaultChecked={valor}
-            className="mt-2"
+            className="mt-2 me-4"
         />
     );
 }
