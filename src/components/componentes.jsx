@@ -32,6 +32,7 @@ function titulo(prop_campo, prop_form, id) {
                     border: "none",
                     paddingLeft: 0,
                     fontWeight: "bold",
+                    width: `${valor.length*1.2}ch`,
                 }}
             />
         </Form.Group>
@@ -47,6 +48,7 @@ function opcao(prop_campo, prop_form, id) {
                 style={{
                     border: "none",
                     paddingLeft: 0,
+                    width: `${valor.length*1.25}ch`,
                 }}
             />
         </Form.Group>
