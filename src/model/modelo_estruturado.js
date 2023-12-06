@@ -1,11 +1,5 @@
 import {ar_condicionado} from './disciplinas/ar_condicionado.disciplina.js';
 
-const formulario = {
-    dados_gerais,
-    disciplinas,
-    observacoes
-}
-
 const dados_gerais = {
     titulo: {
         valor: "DIRETRIZES DE INSTALAÇÕES PREDIAIS",
@@ -51,5 +45,13 @@ const observacoes = [
         },
     },
 ]
+
+
+const formulario = {
+    dados_gerais,
+    disciplinas,
+    observacoes
+}
+
 
 export default formulario;
