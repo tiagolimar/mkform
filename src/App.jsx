@@ -1,5 +1,5 @@
 import { Container, Form } from "react-bootstrap";
-import formulario from "./model/modelo_estruturado.js";
+import formulario from "./model/modelo_completo.js";
 import componentes from "./components/componentes.jsx";
 
 function renderCampo(prop_campo, prop_form, id) {
