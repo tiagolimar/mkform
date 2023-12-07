@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-import { Container } from "react-bootstrap"
+import Caixa from "../Caixa.jsx";
 
 function Disciplina(props) {
   return (
-    <Container className="border rounded pb-2">
-        <div>{props.title}</div>
-    </Container>
+    <Caixa>
+        <div className="fw-bold">{props.title}</div>
+    </Caixa>
   )
 }
 

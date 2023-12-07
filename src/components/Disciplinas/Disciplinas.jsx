@@ -1,17 +1,28 @@
-import { Container } from "react-bootstrap";
 import Titulo from "./../Titulo";
 import Disciplina from './Disciplina';
+import Caixa from "../Caixa.jsx";
 
-const disciplinas = ["AR CONDICIONADO", "HIDRÁULICA", "SANITÁRIA", "ELÉTRICA"];
+const disciplinas = [
+    "AR CONDICIONADO",
+    "HIDRÁULICA - ÁGUA FRIA",
+    "HIDRÁULICA - ÁGUA QUENTE",
+    "HIDRÁULICA - ÁGUA MINERAL",
+    "SANITÁRIA",
+    "ELÉTRICA",
+    "COMUNICAÇÃO",
+    "COMBATE À INCÊNDIO",
+    "GÁS",
+    "SPDA",
+];
 
 function Disciplinas() {
     return (
-        <Container className="border rounded pb-2">
+        <Caixa>
             <Titulo title="DISCIPLINAS" />
             {disciplinas.map((disciplina, id) => {
-                return <Disciplina key={id} title={disciplina} />
+                return <Disciplina key={id} title={`${id+1}. ${disciplina}`} />
             })}
-        </Container>
+        </Caixa>
     );
 }
 
