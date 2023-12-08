@@ -1,7 +1,7 @@
 import Titulo from "./../Titulo";
 import Disciplina from "./Disciplina";
 import Caixa from "../Caixa.jsx";
-import ArCondicionado from "./componentes/ArCondicionado.jsx";
+import ArCondicionado from "./Ar Condicionado/ArCondicionado.jsx";
 
 const disciplinas = [
     ["AR CONDICIONADO", ArCondicionado],
